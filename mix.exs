@@ -4,7 +4,7 @@ defmodule EliXero.Mixfile do
   def project do
     [app: :elixero,
      version: "0.1.1",
-     elixir: "~> 1.3",
+     elixir: "~> 1.8",
      description: description(),
      package: package(),
      deps: deps()]

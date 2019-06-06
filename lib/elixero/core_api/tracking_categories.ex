@@ -38,9 +38,9 @@ defmodule EliXero.CoreApi.TrackingCategories do
     resource = @resource <> identifier <> "/options"
 
     case client.app_type do
-      :private -> EliXero.Private.create(client.access_token, resource, @api_type, options_map)
-      :public -> EliXero.Public.create(client.access_token, resource, @api_type, options_map)
-      :partner -> EliXero.Partner.create(client.access_token, resource, @api_type, options_map)
+      :private -> EliXero.Private.create(client.config, client.access_token, resource, @api_type, options_map)
+      :public -> EliXero.Public.create(client.config, client.access_token, resource, @api_type, options_map)
+      :partner -> EliXero.Partner.create(client.config, client.access_token, resource, @api_type, options_map)
     end
     |> EliXero.CoreApi.Utils.ResponseHandler.handle_response(@options_model_module)
   end
@@ -49,9 +49,9 @@ defmodule EliXero.CoreApi.TrackingCategories do
     resource = @resource <> category_identifier <> "/options" <> option_identifier
 
     case client.app_type do
-      :private -> EliXero.Private.create(client.access_token, resource, @api_type, options_map)
-      :public -> EliXero.Public.create(client.access_token, resource, @api_type, options_map)
-      :partner -> EliXero.Partner.create(client.access_token, resource, @api_type, options_map)
+      :private -> EliXero.Private.create(client.config, client.access_token, resource, @api_type, options_map)
+      :public -> EliXero.Public.create(client.config, client.access_token, resource, @api_type, options_map)
+      :partner -> EliXero.Partner.create(client.config, client.access_token, resource, @api_type, options_map)
     end
     |> EliXero.CoreApi.Utils.ResponseHandler.handle_response(@options_model_module)
   end
@@ -60,9 +60,9 @@ defmodule EliXero.CoreApi.TrackingCategories do
     resource = @resource <> category_identifier <> "/options" <> option_identifier
 
     case client.app_type do
-      :private -> EliXero.Private.delete(client.access_token, resource, @api_type)
-      :public -> EliXero.Public.delete(client.access_token, resource, @api_type)
-      :partner -> EliXero.Partner.delete(client.access_token, resource, @api_type)
+      :private -> EliXero.Private.delete(client.config, client.access_token, resource, @api_type)
+      :public -> EliXero.Public.delete(client.config, client.access_token, resource, @api_type)
+      :partner -> EliXero.Partner.delete(client.config, client.access_token, resource, @api_type)
     end
     |> EliXero.CoreApi.Utils.ResponseHandler.handle_response(@options_model_module)
   end

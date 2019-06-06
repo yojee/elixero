@@ -12,9 +12,9 @@ defmodule EliXero.CoreApi.Reports do
     resource = @resource <> "/" <> name
 
     case client.app_type do
-      :private -> EliXero.Private.find(client.access_token, resource, @api_type)
-      :public -> EliXero.Public.find(client.access_token, resource, @api_type)
-      :partner -> EliXero.Partner.find(client.access_token, resource, @api_type)
+      :private -> EliXero.Private.find(client.config, client.access_token, resource, @api_type)
+      :public -> EliXero.Public.find(client.config, client.access_token, resource, @api_type)
+      :partner -> EliXero.Partner.find(client.config, client.access_token, resource, @api_type)
     end
     |> EliXero.CoreApi.Utils.ResponseHandler.handle_response(@model_module)
   end
@@ -23,9 +23,9 @@ defmodule EliXero.CoreApi.Reports do
     resource = @resource <> "/" <> name <> "?" <> filter
 
     case client.app_type do
-      :private -> EliXero.Private.find(client.access_token, resource, @api_type)
-      :public -> EliXero.Public.find(client.access_token, resource, @api_type)
-      :partner -> EliXero.Partner.find(client.access_token, resource, @api_type)
+      :private -> EliXero.Private.find(client.config, client.access_token, resource, @api_type)
+      :public -> EliXero.Public.find(client.config, client.access_token, resource, @api_type)
+      :partner -> EliXero.Partner.find(client.config, client.access_token, resource, @api_type)
     end
     |> EliXero.CoreApi.Utils.ResponseHandler.handle_response(@model_module)
   end
@@ -34,9 +34,9 @@ defmodule EliXero.CoreApi.Reports do
     resource = @resource <> "/" <> identifier
 
     case client.app_type do
-      :private -> EliXero.Private.find(client.access_token, resource, @api_type)
-      :public -> EliXero.Public.find(client.access_token, resource, @api_type)
-      :partner -> EliXero.Partner.find(client.access_token, resource, @api_type)
+      :private -> EliXero.Private.find(client.config, client.access_token, resource, @api_type)
+      :public -> EliXero.Public.find(client.config, client.access_token, resource, @api_type)
+      :partner -> EliXero.Partner.find(client.config, client.access_token, resource, @api_type)
     end
     |> EliXero.CoreApi.Utils.ResponseHandler.handle_response(@model_module)
   end

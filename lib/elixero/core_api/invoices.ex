@@ -33,9 +33,9 @@ defmodule EliXero.CoreApi.Invoices do
     resource = @resource <> "/" <> identifier <> "/OnlineInvoice"
 
     case client.app_type do
-      :private -> EliXero.Private.find(client.access_token, resource, @api_type)
-      :public -> EliXero.Public.find(client.access_token, resource, @api_type)
-      :partner -> EliXero.Partner.find(client.access_token, resource, @api_type)
+      :private -> EliXero.Private.find(client.config, client.access_token, resource, @api_type)
+      :public -> EliXero.Public.find(client.config, client.access_token, resource, @api_type)
+      :partner -> EliXero.Partner.find(client.config, client.access_token, resource, @api_type)
     end
     |> EliXero.CoreApi.Utils.ResponseHandler.handle_response(@online_invoices_model_module)
   end
